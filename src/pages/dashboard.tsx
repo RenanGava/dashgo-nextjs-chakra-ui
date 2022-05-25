@@ -76,7 +76,7 @@ export default function Dashboard() {
                 <Sidebar/>
                 <SimpleGrid flex='1' gap='4' minChildWidth='320px' alignItems='felx-start'>
                     <Box
-                        p='8'
+                        p={['6','8']}
                         bg='gray.800'
                         borderRadius={8}
                         pb='4'
