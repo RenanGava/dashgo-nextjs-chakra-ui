@@ -1,4 +1,5 @@
 import { Box, Stack, useBreakpointValue, Drawer, DrawerOverlay, DrawerContent, DrawerCloseButton, DrawerHeader, DrawerBody } from "@chakra-ui/react";
+import { useEffect, useState } from "react";
 import { useSidebarDrawer } from "../../contexts/SidebarDrawerContext";
 import { SidebarNav } from "./SidebarNav";
 
@@ -6,10 +7,16 @@ export function Sidebar() {
 
     const {isOpen, onClose} = useSidebarDrawer()
 
-    const isDrawerSidebar = useBreakpointValue({
+    const DrawerSidebar = useBreakpointValue({
         base: true,
         lg: false,
     })
+
+    const [isDrawerSidebar, setIsDrawerSidebar] = useState(true)
+
+    useEffect(()=>{
+        setIsDrawerSidebar(DrawerSidebar)
+    },[DrawerSidebar])
 
     if (isDrawerSidebar) {
         return (
